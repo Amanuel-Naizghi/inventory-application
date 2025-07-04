@@ -1,9 +1,15 @@
 <html>
 <head>
-    <title><%= title %></title>
+    <title>Home</title>
 </head>
 <body>
     <h1><%= title %></h1>
-    <p>Welcome you are a the home page!</p>
+    <ul>
+        <% if (locals.data) {%>
+            <% data.forEach((item) => { %>
+              <li>ID: <%= item.id %> <%= item.name %> <%= item.quantity %> <%= item.rating %> <%= item.category %> <%= item.description %> </li>
+            <% }); %>
+        <% } %>
+    </ul>
 </body>
 </html>

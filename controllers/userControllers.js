@@ -1,5 +1,12 @@
+const queries = require('../db/queries');
+
 async function getAllInventories(req,res){
-    res.render('index',{title:"Home"});
+    const data = await queries.getAllData()
+    res.render('index',{
+                        title:"All inventory",
+                        data:data
+                       }
+    );
 }
 
 async function getFilteredData(req,res){
