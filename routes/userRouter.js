@@ -3,7 +3,8 @@ const userControllers = require('../controllers/userControllers');
 const router = Router();
 
 router.get('/',  userControllers.getAllInventories);
-router.get('/filter',userControllers.getFilteredData);
 router.get('/add',userControllers.getAddData);
+router.post('/add',userControllers.postAddData);
+router.get('/filter',userControllers.getFilteredData);
 
 module.exports = router;

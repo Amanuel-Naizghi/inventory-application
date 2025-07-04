@@ -4,6 +4,18 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <p>You are on add inventory page</p>
+    <form action="/add" method="POST">
+        <label for="name">Item name</label>
+        <input type="text" name="name" placeholder="Apple" required>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" required>
+        <label for="Rating">Rating</label>
+        <input type="number" name="rating" min="0" max="5" >
+        <label for="category">Category</label>
+        <input type="text" name="category" placeholder="Food stuff" required>
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10"></textarea>
+        <button type="submit">Add Item</button>
+    </form>
 </body>
 </html>
