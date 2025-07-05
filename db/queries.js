@@ -16,8 +16,13 @@ async function removeItem(id){
     await pool.query(`DELETE FROM inventory WHERE id = $1 RETURNING *`,[id]);
 }
 
+async function resetDatabase(){
+    await pool.query(`DELETE FROM inventory`)
+}
+
 module.exports = {
     getAllData,
     addData,
-    removeItem
+    removeItem,
+    resetDatabase,
 }

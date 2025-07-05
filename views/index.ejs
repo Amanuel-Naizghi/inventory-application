@@ -4,6 +4,14 @@
 </head>
 <body>
     <h1><%= title %></h1>
+    <button ><a href="/add">Add new item</a></button>
+    <form action="/reset" method="POST">
+        <button type="submit">Reset Database</button>
+    </form>
+    <form action="/populate" method="POST">
+        <button type="submit">Populate Database</button>
+    </form>
+    
     <ul>
         <% if (locals.data) {%>
             <% data.forEach((item) => { %>
@@ -14,6 +22,5 @@
             <% }); %>
         <% } %>
     </ul>
-    <a href="/add">Add new item</a>
 </body>
 </html>

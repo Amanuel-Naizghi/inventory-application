@@ -1,4 +1,5 @@
 const queries = require('../db/queries');
+const populateDB = require('../db/populatedb');
 
 async function getAllInventories(req,res){
     const data = await queries.getAllData()
@@ -28,10 +29,22 @@ async function postRemoveItem(req,res){
     res.redirect('/');
 }
 
+async function removeAllData(req,res){
+    queries.resetDatabase();
+    res.redirect('/');
+}
+
+async function populateDataBase(req,res){
+    populateDB.main();
+    res.redirect('/');
+}
+
 module.exports = {
     getAllInventories,
     getFilteredData,
     getAddData,
     postAddData,
-    postRemoveItem
+    postRemoveItem,
+    removeAllData,
+    populateDataBase,
 }
