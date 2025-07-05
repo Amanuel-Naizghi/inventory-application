@@ -20,11 +20,18 @@ async function getAddData(req,res){
 async function postAddData(req,res){
     const data = req.body;
     queries.addData(data);
+    res.render('add',{title:"Add Item"});
+}
+
+async function postRemoveItem(req,res){
+    queries.removeItem(req.params.id);
+    res.redirect('/');
 }
 
 module.exports = {
     getAllInventories,
     getFilteredData,
     getAddData,
-    postAddData
+    postAddData,
+    postRemoveItem
 }

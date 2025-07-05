@@ -12,7 +12,12 @@ async function addData(data){
                     );
 }
 
+async function removeItem(id){
+    await pool.query(`DELETE FROM inventory WHERE id = $1 RETURNING *`,[id]);
+}
+
 module.exports = {
     getAllData,
-    addData
+    addData,
+    removeItem
 }
