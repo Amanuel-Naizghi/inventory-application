@@ -10,10 +10,6 @@ async function getAllInventories(req,res){
     );
 }
 
-async function getFilteredData(req,res){
-    res.render('filter',{title:"Filter results"});
-}
-
 async function getAddData(req,res){
     res.render('add',{title:"Add Item"});
 }
@@ -57,14 +53,25 @@ async function postEdit(req,res){
     res.redirect('/');
 }
 
+async function filterData(req,res){
+    const {filterType} = req.query;
+    const {filterInput} = req.query;
+    const data = await queries.getFilteredData(filterType,filterInput);
+    res.render('index',{
+        title:"Available items",
+        data:data
+       }
+);
+}
+
 module.exports = {
     getAllInventories,
-    getFilteredData,
     getAddData,
     postAddData,
     postRemoveItem,
     removeAllData,
     populateDataBase,
     getEdit,
-    postEdit
+    postEdit,
+    filterData
 }
