@@ -39,6 +39,24 @@ async function populateDataBase(req,res){
     res.redirect('/');
 }
 
+async function getEdit(req,res){
+    const clickedId = req.params.id;
+    const data = await queries.getEditData(clickedId);
+    res.render('edit',{
+                        title:"Edit item",
+                        data:data[0]
+                        }
+    );
+}
+
+async function postEdit(req,res){
+    const id = req.params.id;
+    const input = req.body;
+    const data = {name:input.name,quantity:input.quantity,rating:input.rating,category:input.category,description:input.description}
+    await queries.postEditData(id,data);
+    res.redirect('/');
+}
+
 module.exports = {
     getAllInventories,
     getFilteredData,
@@ -47,4 +65,6 @@ module.exports = {
     postRemoveItem,
     removeAllData,
     populateDataBase,
+    getEdit,
+    postEdit
 }

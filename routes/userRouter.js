@@ -9,5 +9,7 @@ router.get('/filter',userControllers.getFilteredData);
 router.post('/:id/delete',userControllers.postRemoveItem);
 router.post('/reset',userControllers.removeAllData);
 router.post('/populate',userControllers.populateDataBase);
+router.get('/:id/edit',userControllers.getEdit);
+router.post('/:id/edit',userControllers.postEdit);
 
 module.exports = router;
