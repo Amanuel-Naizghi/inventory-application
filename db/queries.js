@@ -17,8 +17,9 @@ async function removeItem(id){
 }
 
 async function resetDatabase(){
-    await pool.query(`DELETE FROM inventory`)
+    await pool.query(`TRUNCATE TABLE inventory RESTART IDENTITY`);
 }
+
 
 module.exports = {
     getAllData,

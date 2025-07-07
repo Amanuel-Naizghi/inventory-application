@@ -1,5 +1,5 @@
 const queries = require('../db/queries');
-const populateDB = require('../db/populatedb');
+const populate = require('../db/populatedb');
 
 async function getAllInventories(req,res){
     const data = await queries.getAllData()
@@ -35,7 +35,7 @@ async function removeAllData(req,res){
 }
 
 async function populateDataBase(req,res){
-    populateDB.main();
+    await populate.main();
     res.redirect('/');
 }
 
