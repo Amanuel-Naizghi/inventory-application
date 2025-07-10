@@ -24,10 +24,18 @@
         <button type="submit">Filter</button>
     </form>
     
-    <ul>
+    <div class="inventory-container">
         <% if (locals.data) {%>
             <% data.forEach((item) => { %>
-              <li>ID: <%= item.id %> <%= item.name %> <%= item.quantity %> <%= item.rating %> $<%= item.price %> <%= item.category %> <%= item.description %> </li>
+              <div class="item-container">
+                 <img src="/images/<%= item.img.toLowerCase()%>.jpg" alt="honda">
+                 <p class="item-name"><%= item.name %></p>
+                 <p class="item-name"><%= item.quantity %></p>
+                 <p class="item-name">⭐ <%= item.rating %></p>
+                 <p class="item-name">$<%= item.price %></p>
+                 <p class="item-name"><%= item.category %></p>
+                 <p class="item-name"><%= item.description %></p>       
+              </div>
               <form action="/<%= item.id %>/delete" method="POST" style="display:inline">
                 <button type="submit" onclick="return confirm('Are you sure you want to delete the item?');">Delete</button>
               </form>
@@ -36,6 +44,6 @@
               </form>
             <% }); %>
         <% } %>
-    </ul>
+    </div>
 </body>
 </html>
