@@ -1,0 +1,131 @@
+
+body{
+    background:#819067;
+    color:rgb(42, 42, 42)
+}
+.title{
+    text-align: center;
+}
+.set-data-buttons-container{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 0.8rem 4rem 0 4rem;
+}
+.set-data-buttons-container button{
+    background:#0F828C;
+    font-size:0.8rem;
+    border:none;
+    border-radius:10px;
+    color:white;
+    height:2rem;
+}
+.set-data-buttons-container>.add-items{
+    text-decoration: none;
+    background: #0F828C;
+    border:none;
+    border-radius: 10px;
+    color:white;
+    height:2rem;
+    font-size:0.8rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 0.5rem;
+}
+.set-data-buttons-container button:hover,.add-items:hover{
+    background:#2b8992 ;
+}
+.filter-container{
+    padding:0.8rem 4rem;
+}
+.filter-container>.filter{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    padding:1rem 0;
+    background:#0F828C;
+    border-radius:15px;
+}
+.filter-container>.filter>label{
+    font-size:1.3rem;
+    margin-right:0.5rem;
+    color:lightgray;
+}
+.filter-container>.filter>input,.filter-container>.filter>select{
+    width: 400px;
+    height:2rem;
+    background: lightgray;
+    border:none;
+    border-radius:10px;
+    margin-right:1rem;
+    padding-left:0.3rem;
+}
+.filter-container>.filter>input,.filter-container>.filter>select:focus{
+    outline:none;
+}
+.filter-container>.filter>button{
+    background:rgb(43, 59, 165);
+    font-size:1rem;
+    border:none;
+    border-radius:10px;
+    color:lightgray;
+    height:1.8rem;
+    width:70px;
+}
+.filter-container>.filter>button:hover{
+    background:rgb(65, 82, 193);
+}
+.inventory-container{
+    display:grid;
+    grid-template-columns: repeat(4,300px);
+    gap:10px;
+}
+.inventory-container>.item-container{
+    background:lightgray;
+    padding:1rem 0.5rem;
+    border-radius: 5px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.inventory-container>.item-container>img{
+    border-radius:5px;
+}
+.inventory-container>.item-container>p{
+    margin:0.2rem;
+}
+.inventory-container>.item-container>.item-name{
+    font-size:1.2rem;
+    font-weight: 600;
+}
+.inventory-container>.item-container>.item-description{
+    margin-top:0.5rem;
+}
+.inventory-container span{
+    font-weight:600;
+}
+.inventory-container>.item-container>.edit-delete-buttons .edit{
+    background:#0F828C;
+    border:none;
+    border-radius:10px;
+    color:white;
+    width:70px;
+    height:1.2rem;
+    margin-top:0.4rem;
+}
+.inventory-container>.item-container>.edit-delete-buttons .edit:hover{
+    background:#268e97;
+}
+.inventory-container>.item-container>.edit-delete-buttons .delete{
+    background:rgb(191, 37, 37);
+    border:none;
+    border-radius:10px;
+    color:white;
+    width:70px;
+    height:1.2rem;
+    margin-top:0.4rem
+}
+.inventory-container>.item-container>.edit-delete-buttons .delete:hover{
+    background:rgb(200, 67, 67);
+}

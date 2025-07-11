@@ -1,47 +1,56 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    <button ><a href="/add">Add new item</a></button>
-    <form action="/reset" method="POST">
-        <button type="submit">Reset Database</button>
-    </form>
-    <form action="/populate" method="POST">
-        <button type="submit">Populate Database</button>
-    </form>
-    <form action="/filter" method="get">
-        <label for="filterType">Filter by:</label>
-        <select name="filterType" id="filterType" required>
-            <option value="" disabled selected>Select a property</option>
-            <option value="category">category</option>
-            <option value="price">price</option>
-            <option value="rating">rating</option>
-            <option value="name">name</option>
-        </select>
-        <input type="text" name="filterInput" required>
-        <button type="submit">Filter</button>
-    </form>
+    <h1 class="title"><%= title %></h1>
+    <hr>
+    <div class="set-data-buttons-container">
+        <form class="reset" action="/reset" method="POST">
+            <button type="submit">Reset Database</button>
+        </form>
+        <form class="populate" action="/populate" method="POST">
+            <button type="submit">Populate Database</button>
+        </form>
+        <a class="add-items" href="/add">Add new item</a>
+    </div>
+    <hr>
+    <div class="filter-container">
+        <form class="filter" action="/filter" method="get">
+            <label for="filterType">Filter by:</label>
+            <select name="filterType" id="filterType" required>
+                <option value="" disabled selected>Select a property</option>
+                <option value="category">category</option>
+                <option value="price">price</option>
+                <option value="rating">rating</option>
+                <option value="name">name</option>
+            </select>
+            <input type="text" name="filterInput" placeholder="search item" required>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
     
     <div class="inventory-container">
         <% if (locals.data) {%>
             <% data.forEach((item) => { %>
               <div class="item-container">
-                 <img src="/images/<%= item.img.toLowerCase()%>.jpg" alt="honda">
+                 <img src="/images/<%= item.img.toLowerCase()%>.jpg" width="280px" height="250" alt="<%= item.img.toLowerCase()%>">
                  <p class="item-name"><%= item.name %></p>
-                 <p class="item-name"><%= item.quantity %></p>
-                 <p class="item-name">⭐ <%= item.rating %></p>
-                 <p class="item-name">$<%= item.price %></p>
-                 <p class="item-name"><%= item.category %></p>
-                 <p class="item-name"><%= item.description %></p>       
+                 <p class="item-quantity"><span>Quantity:</span> <%= item.quantity %></p>
+                 <p class="item-rating"><span>Rating:</span>⭐ <%= item.rating %></p>
+                 <p class="item-price"><span>Price:</span> $<%= item.price %></p>
+                 <p class="item-catergory"><span>Category:</span> <%= item.category %></p>
+                 <p class="item-description"><%= item.description %></p>  
+                 <div class="edit-delete-buttons">
+                      <form action="/<%= item.id %>/edit" method="get" style="display:inline">
+                        <button class="edit" type="submit">edit</button>
+                      </form>
+                      <form action="/<%= item.id %>/delete" method="POST" style="display:inline">
+                        <button class="delete" type="submit" onclick="return confirm('Are you sure you want to delete the item?');">Delete</button>
+                      </form>
+                  </div>     
               </div>
-              <form action="/<%= item.id %>/delete" method="POST" style="display:inline">
-                <button type="submit" onclick="return confirm('Are you sure you want to delete the item?');">Delete</button>
-              </form>
-              <form action="/<%= item.id %>/edit" method="get" style="display:inline">
-                <button type="submit">edit</button>
-              </form>
             <% }); %>
         <% } %>
     </div>
