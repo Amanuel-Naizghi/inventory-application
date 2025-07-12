@@ -1,23 +1,27 @@
 <html>
 <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="/styles/add.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    <form action="/<%= data.id  %>/edit" method="POST">
-        <label for="name">Item name</label>
-        <input type="text" name="name" value="<%= data.name %>" required>
-        <label for="quantity">Quantity</label>
-        <input type="number" name="quantity" value="<%= data.quantity %>" required>
-        <label for="Rating">Rating</label>
-        <input type="number" name="rating" min="0" max="5" value="<%= data.rating %>" step="0.1">
-        <label for="category">Category</label>
-        <input type="text" name="category" value="<%= data.category %>" required>
-        <label for="description">Description</label>
-        <textarea name="description" cols="30" rows="10"> <%= data.description %> </textarea>
-        <button type="submit">Submit</button>
-        <button><a href="/">Cancel</a></button>
-    </form>
-    
+    <div class="add-item-container">
+        <h1><%= title %></h1>
+        <form action="/<%= data.id  %>/edit" class="add-item-form" method="POST">
+            <label for="name">Item name:</label>
+            <input type="text" name="name" value="<%= data.name %>" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" value="<%= data.quantity %>" required>
+            <label for="Rating">Rating:</label>
+            <input type="number" name="rating" min="0" max="5" value="<%= data.rating %>" step="0.1">
+            <label for="category">Category:</label>
+            <input type="text" name="category" value="<%= data.category %>" required>
+            <label for="description">Description:</label>
+            <textarea name="description" cols="30" rows="10"> <%= data.description %> </textarea>
+            <div class="button-container">
+                <button class="submit" type="submit">Submit</button>
+                <a href="/" class="cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

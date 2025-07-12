@@ -1,0 +1,81 @@
+body{
+    background:#819067;
+    color:rgb(42, 42, 42)
+}
+.add-item-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}
+.add-item-container>h1{
+    font-size:1.8rem;
+}
+.add-item-container>.add-item-form{
+    background: #0F828C;
+    display:flex;
+    flex-direction:column;
+    width:360px;
+    height:480px;
+    padding:1rem 0.5rem;
+    border-radius:10px;
+}
+.add-item-container>.add-item-form>label{
+    font-size:1.3rem;
+    margin-bottom:0.3rem;
+    color:lightgray;
+}
+.add-item-container>.add-item-form>input{
+    height:2rem;
+    background: lightgray;
+    border:none;
+    border-radius:10px;
+    width:350px;
+    margin-bottom:0.3rem;
+    padding:0.2rem 0.4rem;
+}
+.add-item-container>.add-item-form>input:focus,.add-item-form>textarea:focus{
+    outline:none;
+}
+.add-item-form>textarea{
+    margin-bottom:1rem;
+    background: lightgray;
+    border:none;
+    height:150px;
+    border-radius:10px;
+    padding:0.4rem;
+}
+.add-item-form>.button-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-item-form>.button-container>.submit,.cancel{
+    padding:1rem 0;
+    border-radius:15px;
+    width:150px;
+    height:1.5rem;
+    border:none;
+    background:rgb(43, 59, 165);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    margin-right:0.3rem;
+}
+.add-item-form>.button-container>.cancel{
+    background:rgb(191, 37, 37);
+    padding:0.3rem 0;
+}
+.add-item-form>.button-container>.submit:hover{
+    background:rgb(65, 82, 193);
+}
+.add-item-form>.button-container>.cancel:hover{
+    background:rgb(200, 67, 67);
+}
+.add-item-form>.button-container>.cancel{
+    text-decoration:none;
+}
+.back{
+    text-decoration: none;
+}

@@ -1,22 +1,27 @@
 <html>
 <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="./styles/add.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    <form action="/add" method="POST">
-        <label for="name">Item name</label>
-        <input type="text" name="name" placeholder="Apple" required>
-        <label for="quantity">Quantity</label>
-        <input type="number" name="quantity" required>
-        <label for="Rating">Rating</label>
-        <input type="number" name="rating" min="0" max="5" step="0.1">
-        <label for="category">Category</label>
-        <input type="text" name="category" placeholder="Food stuff" required>
-        <label for="description">Description</label>
-        <textarea name="description" cols="30" rows="10"></textarea>
-        <button type="submit">Add Item</button>
-    </form>
-    <a href="/">Back home</a>
+    <div class="add-item-container">
+        <h1><%= title %></h1>
+        <form class="add-item-form" action="/add" method="POST">
+            <label for="name">Item name:</label>
+            <input type="text" name="name" placeholder="Apple" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" required>
+            <label for="Rating">Rating:</label>
+            <input type="number" placeholder="0 upto 5" name="rating" min="0" max="5" step="0.1" value="0">
+            <label for="category">Category:</label>
+            <input type="text" name="category" placeholder="Food stuff" required>
+            <label for="description">Description:</label>
+            <textarea name="description" cols="30" rows="10" placeholder="Item description and details in here"></textarea>
+            <div class="button-container">
+                <button class="submit" type="submit">Add Item</button>
+            </div>
+        </form>
+    </div>
+    <a class="back" href="/">⬅️Back home</a>
 </body>
 </html>
