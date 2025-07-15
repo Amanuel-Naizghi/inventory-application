@@ -39,12 +39,15 @@ const SQL = `
 async function main (){
     console.log("Seeding.......");
     const client = new Client({
-        connectionString: "postgresql://amanuel:Aman1491@localhost:5432/inventory_db",
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+          rejectUnauthorized: false, // Required by Neon
+        },
     });
-      await client.connect();
-      await client.query(SQL);
-      await client.end();
-      console.log("done");
+    await client.connect();
+    await client.query(SQL);
+    await client.end();
+    console.log("done");
 }
 
 main();
