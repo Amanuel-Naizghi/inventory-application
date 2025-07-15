@@ -1,4 +1,4 @@
-const pool = require("./pool");
+const pool = require("./node");
 //Selecting all the rows from the inventory table
 async function getAllData(){
     const {rows} = await pool.query(`SELECT * FROM inventory`);
