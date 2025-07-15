@@ -1,14 +1,16 @@
 const { Pool } = require('pg');
 
-console.log("💡 Using DATABASE_URL:", process.env.DATABASE_URL);
-
+// Parse the connection string manually
+const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: false, // Required for Neon
   },
 });
+
+console.log("💡 Using DATABASE_URL:", connectionString);
 
 module.exports = pool;
 
